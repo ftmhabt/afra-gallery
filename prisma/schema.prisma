@@ -26,35 +26,35 @@ model Product {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  name      String
-  image     Image[]
-  details   String
-  category  Category @relation(fields: [categoryId],references: [id])
+  name       String
+  image      Image[]
+  details    String
+  category   Category    @relation(fields: [categoryId], references: [id])
   categoryId String
-  width     Int
-  height    Int
-  weight    Int
-  time      Int
-  price     Int
-  orderPath String
-  orderItem OrderItem[]
+  width      Int
+  height     Int
+  weight     Int
+  time       Int
+  price      Int
+  orderPath  String
+  orderItem  OrderItem[]
 }
 
-model Image{
-  path String @unique
-  product Product @relation(fields: [productId], references: [id])
+model Image {
+  path      String  @unique
+  product   Product @relation(fields: [productId], references: [id])
   productId String
 }
 
 model Category {
-  id   String @id @default(uuid())
-  name String @unique
+  id      String    @id @default(uuid())
+  name    String    @unique
   product Product[]
 }
 
 model Order {
   id        String      @id @default(uuid())
-  user      User        @relation(fields: [userId], references: [id])
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   total     Int
   items     OrderItem[]
@@ -65,9 +65,9 @@ model Order {
 
 model OrderItem {
   id        String  @id @default(uuid())
-  order     Order   @relation(fields: [orderId], references: [id])
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
   orderId   String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict)
   productId String
   quantity  Int
   price     Int
