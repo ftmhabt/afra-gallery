@@ -29,7 +29,8 @@ model Product {
   name      String
   image     Image[]
   details   String
-  category  String
+  category  Category @relation(fields: [categoryId],references: [id])
+  categoryId String
   width     Int
   height    Int
   weight    Int
@@ -48,6 +49,7 @@ model Image{
 model Category {
   id   String @id @default(uuid())
   name String @unique
+  product Product[]
 }
 
 model Order {
