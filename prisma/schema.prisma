@@ -27,7 +27,7 @@ model Product {
   updatedAt DateTime @updatedAt
 
   name      String
-  image     Json
+  image     Image[]
   details   String
   category  String
   width     Int
@@ -35,7 +35,14 @@ model Product {
   weight    Int
   time      Int
   price     Int
+  orderPath String
   orderItem OrderItem[]
+}
+
+model Image{
+  path String @unique
+  product Product @relation(fields: [productId], references: [id])
+  productId String
 }
 
 model Category {
