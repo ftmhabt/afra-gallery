@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Sales from "../../components/sales";
+import Sales from "../../../components/sales";
 
-export default function Home() {
+export default function Admin() {
   return (
     <>
       <Sales />
