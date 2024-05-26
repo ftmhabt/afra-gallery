@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,13 @@ export default function AdminLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ul className="w-screen h-10 bg-black text-white flex justify-evenly items-center *:cursor-pointer">
+          <li>dashboard</li>
+          <li>products</li>
+        </ul>
+        {children}
+      </body>
     </html>
   );
 }
