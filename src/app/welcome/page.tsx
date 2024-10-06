@@ -1,7 +1,14 @@
+"use client";
 import Image from "next/image";
 import plate from "../../../public/image-from-rawpixel-id-12625945-png.png";
 import wave from "../../../public/waves-2-large.svg";
+import { useEffect } from "react";
+import Link from "next/link";
 export default function Welcome() {
+  useEffect(() => {
+    localStorage.setItem("isFirstTime", "true");
+  });
+
   return (
     <div className="overflow-hidden">
       <div className="h-[70vh] flex flex-col justify-evenly bg-blue-600">
@@ -23,9 +30,12 @@ export default function Welcome() {
       <div className="bg-divider bg-no-repeat bg-bottom bg-cover h-9 -my-1"></div>
       <div className="h-[25vh] bg-white flex flex-col justify-evenly items-center">
         <p className="text-2xl">welcome</p>
-        <button className="bg-blue-600 py-3 text-center w-[90vw] rounded-2xl text-white text-xl">
+        <Link
+          href="/"
+          className="bg-blue-600 py-3 text-center w-[90vw] rounded-2xl text-white text-xl"
+        >
           go to store
-        </button>
+        </Link>
       </div>
     </div>
   );
