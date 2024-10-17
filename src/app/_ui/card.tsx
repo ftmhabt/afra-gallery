@@ -8,7 +8,7 @@ export default function Card() {
         alt="pot"
         width={150}
         height={150}
-        className="rounded-xl"
+        className="rounded-xl grow"
       />
       <div className="flex flex-col gap-4">
         <div className="h-full flex flex-col justify-between">
