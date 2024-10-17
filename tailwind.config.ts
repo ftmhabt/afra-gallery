@@ -14,6 +14,13 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         divider: "url('/waves-2-large.svg')",
       },
+      colors: {
+        primary: "#1C9593",
+        secondary: "#EFEFEF",
+      },
+      fontFamily: {
+        zain: ["Zain", "sans-serif"],
+      },
     },
   },
   plugins: [],
