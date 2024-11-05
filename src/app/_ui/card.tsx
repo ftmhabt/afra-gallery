@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Pot from "../../../public/pot.jpg";
-export default function Card() {
+
+export default function Card({ imageSource }: { imageSorce: string }) {
   return (
     <div className="rounded-xl bg-white flex gap-4 p-4 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
       <Image
-        src={Pot}
+        src={imageSource}
         alt="pot"
         width={150}
         height={150}
