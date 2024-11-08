@@ -1,6 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-export default function Card({ imageSource }: { imageSource: string }) {
+export default function Card({
+  imageSource,
+}: {
+  imageSource: StaticImageData;
+}) {
   return (
     <div className="rounded-xl bg-white flex gap-4 p-4 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
       <Image

@@ -40,7 +40,7 @@ export default function Home() {
           .map(
             (item, index) =>
               item === category && (
-                <Card key={index} imageSource={images[index]} />
+                <Card key={index} imageSource={images[index % images.length]} />
               )
           )}
       </div>
