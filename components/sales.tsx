@@ -1,4 +1,6 @@
+"use client";
 import { PrismaClient } from "@prisma/client";
+import { useEffect, useState } from "react";
 
 const db = new PrismaClient();
 
@@ -13,11 +15,23 @@ async function getSales() {
   };
 }
 
-export default async function Sales() {
-    const salesData=await getSales();
+export default function Sales() {
+  const [salesData, setSalesData] = useState({ amount: 0, numberOfSales: 0 });
 
-  return <>
-  <div>amount: {salesData.amount}</div>
-  <div>number of sales: {salesData.numberOfSales}</div>
-  </>;
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await getSales();
+  //     if (data) setSalesData(data);
+  //   };
+  //   fetchData();
+  // }, []);
+
+  return (
+    salesData && (
+      <>
+        (<div>amount: {salesData.amount}</div>
+        <div>number of sales: {salesData.numberOfSales}</div>)
+      </>
+    )
+  );
 }
